@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet.js Haritası</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #mapid {
+            height: 600px;
+            width: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Harita Örneği - Leaflet.js ve GitHub Pages</h1>
+    <div id="mapid"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Haritayı tanımla ve başlangıç noktasını ayarla
+        var map = L.map('mapid').setView([41.0082, 28.9784], 13); // İstanbul koordinatları
+
+        // OpenStreetMap harita döşemeleri
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
+
+        // İşaretçi ekle (Marker)
+        var marker = L.marker([41.0082, 28.9784]).addTo(map);
+        marker.bindPopup("<b>İstanbul</b><br>Buraya hoş geldiniz.").openPopup();
+    </script>
+
+</body>
+</html>
